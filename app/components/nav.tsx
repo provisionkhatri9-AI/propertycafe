@@ -15,7 +15,7 @@ export default function NavBar(){
 
     if (!mounted) return null
     return(
-        <div className={`flex  w-[95vw]  ${isMobile? "pl-6 transition-all duration-300": "pl-20"} `}>
+        <div className={`flex  w-[95vw]  ${isMobile? "pl-3 transition-all duration-300": "pl-16"} `}>
             <div className="flex w-full justify-between  items-center h-[80.94px]  ">
                 <div className="w-fit height-fit">
                     <Image src="/logohome.png" alt="hello" width={95} height={53}/>

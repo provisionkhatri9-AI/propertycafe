@@ -1,15 +1,17 @@
 import CookieUI from "./components/CookieUI";
-import HeroSection from "./components/HeroSection";
+import HeroSection from "./components/homecomponents/HeroSection";
 
 
 export default function Home() {
   return (
-    <div >
+    <main>
+        <div >
        {/* <CookieUI></CookieUI> */}
-      <HeroSection></HeroSection>
+        <HeroSection></HeroSection>
+          
         
-       
-    </div>
+      </div>
+    </main>
    
   );
 }
