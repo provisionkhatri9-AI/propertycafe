@@ -47,14 +47,14 @@ import { useMediaQuery } from "react-responsive"
 import FeatureRealCard from "./FeatureRealCard";
 
 export default function FeaturedPropertyCard({
-    widthClass= "w-[80wv]"
+    widthClass= "w-[95wv]"
 }){
 
     const isMobile = useMediaQuery({maxWidth: 1268})
 
     return(
-        <div className="w-[100%] flex flex-col  max-w-[1025px]">
-            <div className={`flex gap-2 ${isMobile ? "w-[87vw]" : widthClass}  pl-2 pb-4 overflow-x-auto hide-scrollbar`}>
+        <div className="w-[100%] flex flex-col">
+            <div className={`flex gap-2 ${isMobile ? "w-[90vw]" : widthClass}  pl-2 pb-4 overflow-x-auto hide-scrollbar`}>
             
                 {
                     properties.map((items,key)=>(

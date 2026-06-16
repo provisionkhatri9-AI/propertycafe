@@ -1,10 +1,18 @@
+"use client"
 import Image from "next/image"
+
 import { useMediaQuery } from "react-responsive"
 export default function Bhkanna(){
+
+    
+
+
     const isMobile = useMediaQuery({maxWidth: 1000})
     const isWidth495 = useMediaQuery({maxWidth:495})
     const isWidth548 = useMediaQuery({maxWidth:548})
     const isWidth444 = useMediaQuery({maxWidth:444})
+
+    
     return(
         <div className={`flex flex-col  w-full  ${isMobile ? "gap-2" : "gap-6"}`}>
             <div className="px-2 w-fit rounded-xl py-1 bg-[#E7EDFF]">

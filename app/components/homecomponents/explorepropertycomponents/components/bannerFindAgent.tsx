@@ -7,10 +7,11 @@ import { useMediaQuery } from "react-responsive"
 export default function Banner(){
 
     const isMobile = useMediaQuery({maxWidth:845})
+    const isMobile600= useMediaQuery({maxWidth:600})
     return(
         <div className={`mb-[40px] bg-[#380CCD] w-full h-full rounded-[12px] flex ${isMobile? "flex-col justify-center items-start gap-3" : "flex-row"} justify-between py-6 px-6 relative overflow-hidden`}>
-            <div className={`flex ${isMobile? "flex-col items-start" : "flex-row"} items-center gap-2`}>
-                <div className="flex -space-x-3 order-1">
+            <div className={`flex ${isMobile600? "flex-col items-start" : "flex-row"} items-center gap-2`}>
+                <div className={`flex ${isMobile600? "order-1" : ""} -space-x-3 `}>
                     <Image src="/agent1.jpg" alt="hello" width={45} height={45} className="rounded-full"></Image>
                     <Image src="/agent2.jpg" alt="hello" width={45} height={45} className="rounded-full"></Image>
                     <Image src="/agent3.jpg" alt="hello" width={45} height={45} className="rounded-full"></Image>

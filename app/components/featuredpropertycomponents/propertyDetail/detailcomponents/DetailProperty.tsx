@@ -40,7 +40,7 @@ export default function DetailProperty(){
                     
                 }
 
-                <Location></Location>
+                <Location isMobile = {isMobile}></Location>
                 {
                     isMobile&&
                     <NotSureYet></NotSureYet>

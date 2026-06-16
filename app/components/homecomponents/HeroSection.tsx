@@ -26,7 +26,7 @@ export default function HeroSection(){
     return(
 
         <div className=" bg-gradient-to-b from-[#FFFFFF] via-[#FFFFFF] via-[12%] to-[#8859A9] w-[100%]   relative">
-            <div className={`h-screen flex  w-[95vw]  ${isMobile? "pl-6 transition-all duration-300": "pl-20"} `}>
+            <div className={`h-screen flex  w-[95vw]   ${isMobile? "pl-6 transition-all duration-300": "pl-20"} `}>
                 
                 <div className={`absolute top-[120px] left-[20px] h-[741px]  w-[95%]`}>
                     <Image src="/building.png" alt="kad" width={0} height={0}  sizes="100vw" className="w-full h-auto opacity-10 brightness-0 invert"/>
@@ -47,8 +47,8 @@ export default function HeroSection(){
 
             </div>
 
-            <div className={`absolute  ${isHieght500? "top-[550px]": isHieght550 ? "top-[105%]" : "top-[105%]"}   left-1/2 -translate-x-1/2 h-full w-[90%]`}>
-                    <div className="w-[100%]">
+            <div className={`absolute   ${isHieght500? "top-[550px]": isHieght550 ? "top-[105%]" : "top-[105%]"}   left-1/2 -translate-x-1/2 h-full `}>
+                    <div className="w-[100%] ">
                         <ExploreProperty></ExploreProperty>
                     </div>
             </div>

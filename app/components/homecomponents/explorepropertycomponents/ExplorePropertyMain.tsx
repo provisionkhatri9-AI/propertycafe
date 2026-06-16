@@ -1,6 +1,6 @@
 "use client"
 
-import Banner from "./components/banner";
+import Banner from "./components/bannerFindAgent";
 import FindHomeBanner from "./components/FindHomeBanner";
 import Recomended from "./components/Recomended";
 import FeaturedPropertyMain from "../../featuredpropertycomponents/FeaturedPropertyMain";
@@ -17,13 +17,13 @@ import { useMediaQuery } from "react-responsive";
 export default function ExploreProperty(){
     
     const isMobile = useMediaQuery({maxWidth:857})
-    const isWidth440 = useMediaQuery({maxWidth:440})
+   
     
 
     return(
-        <div className="flex flex-col gap-10 justify-center items-center w-[100%]">
-            <div className={`flex flex-col gap-4 ${isMobile ? "items-start" : "justify-center"} `}>
-                <div className={`font-semibold text-[clamp(1.3rem,4vw,2rem)] w-full  flex items-center ${isMobile ? "justify-start" : "justify-center"} `}>
+        <div className="flex flex-col gap-10 justify-center items-center w-[90vw]">
+            <div className={`flex flex-col w-full gap-4 ${isMobile ? "items-start" : "justify-center"} `}>
+                <div className={`font-semibold text-[clamp(1.3rem,4vw,2rem)] w-full   flex items-center ${isMobile ? "justify-start" : "justify-center"} `}>
                     <p>Explore Our Curated Property Catagories</p>
                 </div>
 

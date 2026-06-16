@@ -15,7 +15,7 @@ export default function MobileScreen(){
     if (!mounted) return null
     return(
 
-        <div className={`flex overflow-x-auto  gap-2 p-3 ${isMobile ? "w-[77vw]" : "w-[80vw]"} scrollbar-hide `}>
+        <div className={`flex overflow-x-auto  gap-2 p-3 ${isMobile ? "w-[90vw]" : "w-[80vw]"} scrollbar-hide `}>
             <div className="shadow flex flex-col shrink-0 h-fit  rounded-xl p-3">
 
                 <div className="w-full flex h-[34px]">

@@ -21,7 +21,8 @@ export default function FeatureRealCard({
     property,
 }: RealCard){
     return(
-        <Link href="/components/featuredpropertycomponents/propertyDetail">
+        <div className="w-full ">
+            <Link href="/components/featuredpropertycomponents/propertyDetail" >
                             <div className="relative w-[289px] h-[289px] h-fit shadow rounded-xl overflow-hidden flex flex-col flex-none ">
                             <div className=""><Image src = {property.image} alt="helo" width={0} height={0} className=" w-[289px] h-[172px] " unoptimized></Image></div>
                             <div className="absolute inset-0 p-4 flex justify-between w-[100%]">
@@ -87,5 +88,6 @@ export default function FeatureRealCard({
                             </div> 
                         </div>
                         </Link>
+        </div>
     )
 }

@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import callRequestReducer from "../store/slices/callbackandschedyle"
+import cookieReducer from "../store/slices/cookie"
 
 export const store = configureStore({
     reducer:{
-        callRequest : callRequestReducer
+        callRequest : callRequestReducer,
+        cookie: cookieReducer
     }
 })
 

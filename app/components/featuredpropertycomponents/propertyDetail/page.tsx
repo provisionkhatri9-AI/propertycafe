@@ -6,12 +6,20 @@ import Money from "./detailcomponents/money";
 import SchedulingandCalback from "./detailcomponents/SchedulaandCalback";
 import Bhkanna from "./detailcomponents/2bkanna";
 import Image from "next/image";
+import { useEffect,useState } from "react"
 
 export default function PropertyDetail(){
+
+    const [mounted,setMounted] = useState(false)
+
+    useEffect(()=>{
+        setMounted(true)
+    },[])
 
     const isMobile = useMediaQuery({maxWidth: 1000})
     const isMobile400 = useMediaQuery({maxWidth: 400})
 
+    if(!mounted) return null
     return(
 
 

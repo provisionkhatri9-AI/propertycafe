@@ -7,8 +7,12 @@ export default function Photo(){
     const isMobile = useMediaQuery({maxWidth: 800})
         return(
             <div className="flex gap-3 px-2 py-3 w-full -translate-x-[8px]">
-                <div className={` rounded-xl overflow-hidden  min-w-[250px] w-fit flex flex-col gap-2  relative`}>
-                    <Image src="/featuredproduct3.jpg" alt="hello" width={0} height={0} className=" w-full min-w-[200px] max-w-[605px] min-h-[200px] max-h-[450] h-full" unoptimized></Image>
+                <div className={`  overflow-hidden  min-w-[250px] w-fit  flex flex-col gap-2  relative`}>
+                   
+                        <div className="w-full h-full  rounded-xl overflow-hidden">
+                            <Image src="/featuredproduct3.jpg" alt="hello" width={0} height={0} className=" w-full min-w-[200px] max-w-[605px] min-h-[200px] max-h-[450] h-full" unoptimized></Image>
+                        </div>
+                    
                     <div className={`flex gap-1 ${isMobile ? "order-[-1] self-end" : "absolute"} inset-4`}>
                         <div className="flex items-center shadow  gap-1 w-fit rounded-md h-fit py-1 px-3  bg-white">
                             <Image src="/love.png" alt="hello" width={0} height={0} className="w-[14px] h-[14px]"></Image>

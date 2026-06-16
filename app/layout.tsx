@@ -2,6 +2,7 @@ import NavBar from "./components/nav";
 import "./globals.css";
 import {Figtree} from "next/font/google"
 import ReduxProvider from "./store/Provider";
+import CookieUI from "./components/CookieUI";
 
 export const metadata = {
   title: "Property Cafe",
@@ -30,8 +31,11 @@ export default function RootLayout({
       <body className={figtree.className}>
         
          <ReduxProvider>
-          <NavBar></NavBar>
-          {children}
+          <div>
+           <CookieUI></CookieUI>
+            <NavBar></NavBar>
+            {children}
+          </div>
          </ReduxProvider>
         
         </body>

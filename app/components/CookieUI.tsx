@@ -1,8 +1,12 @@
 "use client"
 import Image from "next/image"
 
+import { useDispatch, useSelector } from "react-redux"
 import { Manrope } from "next/font/google"
 import { useMediaQuery } from "react-responsive"
+import { hideCookie } from "../store/slices/cookie"
+import { RootState } from "../store/store"
+import { useEffect,useState } from "react"
 
 const manrope = Manrope({
     subsets : ["latin"],
@@ -10,15 +14,39 @@ const manrope = Manrope({
 })
 
 export default function CookieUI(){
+
+    const [mounted, setMounted] = useState(false)
+
+    useEffect(()=>{
+        setMounted(true)
+    },[])
+
+
     const isMobile = useMediaQuery({maxWidth:767})
+
+    
+
+    const dispatch = useDispatch()
+
+    const selected = useSelector(
+        (state : RootState) => state.cookie.showCookie
+    )
+
+    if(!mounted) return null
+
+    if(!selected) return null
+
+
 
 
     return(
-        <div className={`flex ${isMobile? "flex-col" : "flex-row"} items-center w-[95%]  h-[127px] rounded-[12px] p-[12px] gap-[24px] bg-white`}>
-            <div className={`flex w-full ${isMobile? "items-start" : "items-center"} height-fit gap-[5px]`}>
+        <div className={`fixed w-full bottom-0   z-1000 `}>
+            <div className="w-full flex items-center justify-center">
+                <div className={`flex ${isMobile? "flex-col  w-[98%] rounded-t-[12px]" : "flex-row  w-[95%] rounded-[12px]"} items-center  shadow  p-[12px] gap-[24px] bg-white`}>
+            <div className={`flex w-full ${isMobile? "items-start" : "items-center"} height-fit  gap-[5px]`}>
                 <div className={`${isMobile? "h-[40px] w-[40px]" : "min-h-[60px] min-w-[60px]"}  relative bg-[#F0EAF4] rounded-full`}>
                     <div className={`w-[44px] h-[44px] absolute ${isMobile? "top-[-3px] left-[-2px]" : "top-[8.5px]  left-[8px]"}  `}>
-                        <Image src="/cookieicon.svg" alt="hello"  width={36.67} height={36.67} className="absolute top-[3.67px] left-[3.67px]"/>
+                        <Image src="/cookie.svg" alt="hello"  width={36.67} height={36.67} className="absolute top-[3.67px] left-[3.67px]"/>
 
                     </div>
 
@@ -34,18 +62,20 @@ export default function CookieUI(){
 
             <div className="flex w-fit h-fit gap-[16px]">
                 <div className=" bg-gradient-to-l from-[#A044FF] to-[#6A3093] p-[2px]  rounded-[12px] ">
-                    <div className=" p-[10px] bg-white rounded-[10px]">
-                        <div className={manrope.className + " font-semibold text-[16px] leading-[22px] w-[123px] h-[22px] text-[#6A3093] flex items-center"}>
+                    <button type="button" className=" p-[10px] bg-white rounded-[10px] cursor-pointer group" onClick={()=>dispatch(hideCookie())}>
+                        <div className={manrope.className + " font-semibold text-[16px] leading-[22px] w-[123px] h-[22px] group-hover:-translate-y-[2px] group-hover:scale-1.3 duration-300 transition-all text-[#6A3093] flex items-center"}>
                              Decline Cookies
                         </div>
-                    </div>
+                    </button>
                 </div>
-                <div className="bg-gradient-to-l from-[#A044FF] to-[#6A3093] flex items-center rounded-[8px] p-[10px]">
-                    <p className="w-[120px] h-[22px] font-semibold text-[16px] leading-[22px]">Accept Cookies</p>
-                </div>
+                <button type="button" className="bg-gradient-to-l from-[#A044FF] to-[#6A3093] flex items-center rounded-[8px] group p-[10px] cursor-pointer" onClick={()=>dispatch(hideCookie())}>
+                    <p className="w-[120px] h-[22px] font-semibold text-[16px] leading-[22px] group-hover:-translate-y-[2px] transition-all duration-300">Accept Cookies</p>
+                </button>
 
             </div>
 
+        </div>
+            </div>
         </div>
     )
 }

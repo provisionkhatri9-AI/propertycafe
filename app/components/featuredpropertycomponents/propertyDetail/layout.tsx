@@ -9,7 +9,7 @@ export default function RootLayout({
 }){
     const isMobile = useMediaQuery({maxWidth: 767})
     return(
-        <div className={`    flex flex-col  items-center  mt-3 ${isMobile? "mr-2":""}`}>
+        <div className={`    flex flex-col  items-center  mt-3 `}>
         <div className="w-[87vw]  ">
             <ShowPath></ShowPath>
         </div>
