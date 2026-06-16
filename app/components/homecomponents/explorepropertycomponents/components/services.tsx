@@ -10,7 +10,7 @@ export default function Service(){
                 <h1 className="font-bold text-[clamp(1.3rem,4vw,2rem)]">Our Services</h1>
             </div>
 
-            <div className="flex flex-wrap items-center w-full gap-2 justify-between">
+            <div className="flex flex-wrap items-center justify-center w-full gap-11 ">
                 <div className="bg-gradient-to-b from-[#FFFFFF] to-[#F0EAF4] w-[250px] p-4  shadow rounded-xl flex flex-col gap-5 items-center justify-center">
                     <div className="h-[200px] flex items-center justify-center">
                         <Image src="/homesearch.png" alt="" width={150} height={150}></Image>

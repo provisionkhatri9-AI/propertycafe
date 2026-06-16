@@ -99,6 +99,31 @@ export default function ExploreMore(){
                 }
                 
             </div>
+
+            <div>
+                <div className="flex gap-4 pt-2">
+                    <div className="w-[24px] h-[24px]"><Image src="/facebook.png" alt="hello" width={0} height={0} className="w-full h-full" unoptimized></Image></div>
+                    <div className="w-[24px] h-[24px]"><Image src="/instagram1.png" alt="hello" width={0} height={0} className="w-full h-full" unoptimized></Image></div>
+                    <div className="w-[24px] h-[24px]"><Image src="/youtube.png" alt="hello" width={0} height={0} className="w-full h-full" unoptimized></Image></div>
+                    <div className="w-[24px] h-[24px]"><Image src="/twitter.png" alt="hello" width={0} height={0} className="w-full h-full" unoptimized></Image></div>
+                   
+                </div>
+            </div>
+            <div className="flex justify-between pt-3 whitespace-nowrap flex-wrap">
+                <p className="text-[12px] leading-[140%] text-[#787D9C]">About</p>
+                <p className="text-[12px] leading-[140%] text-[#787D9C]">Our Team</p>
+                <p className="text-[12px] leading-[140%] text-[#787D9C]">Location</p>
+                <p className="text-[12px] leading-[140%] text-[#787D9C]">Contact Us</p>
+                <p className="text-[12px] leading-[140%] text-[#787D9C]">Help</p>
+                <p className="text-[12px] leading-[140%] text-[#787D9C]">Terms and Conditions</p>
+                <p className="text-[12px] leading-[140%] text-[#787D9C]">Privacy and Policy</p>
+                <p className="text-[12px] leading-[140%] text-[#787D9C]">Careers</p>
+            </div>
+
+            <div className="flex items-center justify-center flex-col gap-4 pt-3">
+                <p className="text-[24px] leading-[140%] font-bold "><span className="text-[#A044FF]">Property</span>CafeNepal.com</p>
+                <p className="text-[#787D9C] text-[12px] leading-[140%] ">@2025 Property Cafe Nepal. All Rights Reserved</p>
+            </div>
         </div>
     )
 }

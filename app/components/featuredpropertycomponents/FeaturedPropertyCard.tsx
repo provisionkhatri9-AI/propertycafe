@@ -54,7 +54,7 @@ export default function FeaturedPropertyCard({
 
     return(
         <div className="w-[100%] flex flex-col">
-            <div className={`flex gap-2 ${isMobile ? "w-[90vw]" : widthClass}  pl-2 pb-4 overflow-x-auto hide-scrollbar`}>
+            <div className={`flex gap-2 ${isMobile ? "w-[90vw]" : widthClass}  pl-2 pb-4 overflow-x-auto scrollbar-hide`}>
             
                 {
                     properties.map((items,key)=>(

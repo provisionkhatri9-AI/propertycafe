@@ -41,18 +41,19 @@ export default function BlogAndArticle(){
     return(
         <div className="mb-10 w-full">
             <div className="mb-2">
-                <p className="text-[clamp(1.5rem,4vw,2rem)]">Blogs and Articles</p>
+                <p className="text-[clamp(1.3rem,4vw,2rem)] text-[#111116]">Blogs and Articles</p>
             </div>
 
-            <div className="flex w-[80vw] overflow-x-auto scrollbar-hide gap-6">
+            <div className="flex w-[90vw]  overflow-x-auto scrollbar-hide gap-6">
                 {
                     blogs.map((items,key)=>(
-                        <div key={key} className="flex flex-col max-w-[320px] min-w-[270px]  gap-1">
-                    <div className="rounded-xl overflow-hidden max-w-[300px] min-w-[260px] h-fit ">
-                        <Image src={items.image} alt="helo" width={300} height={300}></Image>
+                        <div key={key} className="flex flex-col max-w-[380px] min-w-[270px]  gap-1">
+                    <div className="rounded-xl overflow-hidden max-w-[380px] min-w-[270px] h-fit ">
+                        <Image src={items.image} alt="helo" width={380} height={370}></Image>
                     </div>
 
-                    <div>
+                    <div className="max-w-[330px] ">
+                        <div>
                         <p className="font-bold text-[16px] leading-[140%] ">{items.title}</p>
                     </div>
 
@@ -66,6 +67,7 @@ export default function BlogAndArticle(){
                         consectetur. Vel parturient amet proin mauris gravida porttitor. 
                         In urna turpis amet pretium etiam faucibus malesuada</p>
                         <p className="font-semibold text-[13px] text-[#F0A300] leading-[140%]">...Read More</p>
+                    </div>
                     </div>
                 </div>
 
