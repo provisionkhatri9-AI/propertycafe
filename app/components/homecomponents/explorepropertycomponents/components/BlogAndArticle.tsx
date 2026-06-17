@@ -47,9 +47,9 @@ export default function BlogAndArticle(){
             <div className="flex w-[90vw]  overflow-x-auto scrollbar-hide gap-6">
                 {
                     blogs.map((items,key)=>(
-                        <div key={key} className="flex flex-col max-w-[380px] min-w-[270px]  gap-1">
+                        <div key={key} className="flex flex-col max-w-[380px] min-w-[270px]  gap-1 group hover:-translate-y-[2px] transition-all cursor-pointer duration-300" >
                     <div className="rounded-xl overflow-hidden max-w-[380px] min-w-[270px] h-fit ">
-                        <Image src={items.image} alt="helo" width={380} height={370}></Image>
+                        <Image src={items.image} alt="helo" width={380} height={370} className="group-hover:scale-101  transition-all duration-500"></Image>
                     </div>
 
                     <div className="max-w-[330px] ">

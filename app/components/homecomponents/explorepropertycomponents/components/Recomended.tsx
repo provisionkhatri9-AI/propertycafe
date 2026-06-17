@@ -5,7 +5,7 @@ export default function (){
     return(
         <div className="">
             <div>
-                <p className="font-semibold text-[clamp(1.3rem,4vw,2rem)]">Recommended For You</p>
+                <p className="font-semibold text-[clamp(1.3rem,3vw,2rem)]">Recommended For You</p>
 
             </div>
             <div>
@@ -13,7 +13,7 @@ export default function (){
             </div>
 
             <div className="mt-5 ">
-                <FeaturedPropertyCard></FeaturedPropertyCard>
+                <FeaturedPropertyCard type="recommended"></FeaturedPropertyCard>
             </div>
         </div>
     )

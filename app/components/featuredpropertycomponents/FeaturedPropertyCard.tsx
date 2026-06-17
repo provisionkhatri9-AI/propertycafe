@@ -45,24 +45,55 @@ const properties = [
 
 import { useMediaQuery } from "react-responsive"
 import FeatureRealCard from "./FeatureRealCard";
+import { RootState } from "../../store/store";
+import { useSelector, useDispatch } from "react-redux";
+import ArrowComp from "./propertyDetail/detailcomponents/arrowComp";
+import { slideLeftFea, slideRightExp, slideRightFea } from "@/app/store/slices/slideClickSlice";
+
+type sliderType= "recommended" | "feature"
 
 export default function FeaturedPropertyCard({
-    widthClass= "w-[95wv]"
-}){
+    widthClass= "w-[95wv]",
+    type = "feature" 
+}: {
+  widthClass?: string;
+  type?: sliderType;
+} ){
 
     const isMobile = useMediaQuery({maxWidth: 1268})
 
+    const dispatch = useDispatch()
+     const slide = useSelector(
+     (state: RootState) => state.slideOptions.featureSlicing[type]
+    )
+    console.log(slide)
+
+
     return(
-        <div className="w-[100%] flex flex-col">
-            <div className={`flex gap-2 ${isMobile ? "w-[90vw]" : widthClass}  pl-2 pb-4 overflow-x-auto scrollbar-hide`}>
+        <div className="w-[100%] flex flex-col relative">
+            <div className={` ${isMobile ? "w-[90vw]" : widthClass}   pl-2 pb-4 overflow-hidden` } >
+              {
+                slide >0 &&
+                <div className="absolute  z-[200] top-1/2 left-[-14px]">
+                <ArrowComp onClick={()=>dispatch(slideLeftFea(type)) } direction="left"></ArrowComp>
+            </div>
+            }
             
-                {
+                <div className="flex gap-2 transition-transform duration-300"
+        style={{
+            transform: `translateX(-${slide * 298}px)`,
+        }}>
+                  {
                     properties.map((items,key)=>(
                         <FeatureRealCard key={key} property={items}></FeatureRealCard>
                     ))
                 }
+                </div>
                 
 
+            </div>
+            <div className="absolute sm:right-[-17px] top-1/2 right-[-14px]">
+                <ArrowComp onClick={()=>dispatch(slideRightFea(type))} direction="right"></ArrowComp>
             </div>
         </div>
     )

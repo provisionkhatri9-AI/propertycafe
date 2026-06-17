@@ -21,10 +21,10 @@ export default function FeatureRealCard({
     property,
 }: RealCard){
     return(
-        <div className="w-full ">
-            <Link href="/components/featuredpropertycomponents/propertyDetail" >
-                            <div className="relative w-[289px] h-[289px] h-fit shadow rounded-xl overflow-hidden flex flex-col flex-none ">
-                            <div className=""><Image src = {property.image} alt="helo" width={0} height={0} className=" w-[289px] h-[172px] " unoptimized></Image></div>
+        <div className="w-full py-2 ">
+            <Link href="/components/featuredpropertycomponents/propertyDetail" className="group " >
+                            <div className="relative w-[289px] h-[289px] h-fit shadow rounded-xl overflow-hidden flex flex-col flex-none group-hover:-translate-y-[2px] transition-all duration-300 ">
+                            <div className=""><Image src = {property.image} alt="helo" width={289} height={172} className=" w-full h-[172px] group-hover:scale-103 transition-all duration-300 " unoptimized></Image></div>
                             <div className="absolute inset-0 p-4 flex justify-between w-[100%]">
                                 <div className="bg-[#6A7FDB] px-[8px] rounded-md flex items-center justify-center py-[4px] h-fit ">
                                     <p className="text-[12px] ">Tag</p>

@@ -46,7 +46,7 @@ export default function CookieUI(){
             <div className={`flex w-full ${isMobile? "items-start" : "items-center"} height-fit  gap-[5px]`}>
                 <div className={`${isMobile? "h-[40px] w-[40px]" : "min-h-[60px] min-w-[60px]"}  relative bg-[#F0EAF4] rounded-full`}>
                     <div className={`w-[44px] h-[44px] absolute ${isMobile? "top-[-3px] left-[-2px]" : "top-[8.5px]  left-[8px]"}  `}>
-                        <Image src="/cookie.svg" alt="hello"  width={36.67} height={36.67} className="absolute top-[3.67px] left-[3.67px]"/>
+                        <Image src="/cookie.svg" alt="hello"  width={36.67} height={36.67} className="absolute top-[3.67px] left-[3.67px] w-full h-full "/>
 
                     </div>
 

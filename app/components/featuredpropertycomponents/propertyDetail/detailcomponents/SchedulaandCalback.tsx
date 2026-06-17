@@ -1,7 +1,7 @@
 import { useMediaQuery } from "react-responsive"
 import { useDispatch,useSelector } from "react-redux"
 import { RootState } from "../../../../store/store"
-import { openModal,closeModal } from "@/app/store/slices/callbackandschedyle"
+import { openModal,closeModal } from "@/app/store/slices/callbackandschedule"
 import RequestCall from "./requestcall/Requsetcall"
 
 export default function SchedulingandCalback(){
