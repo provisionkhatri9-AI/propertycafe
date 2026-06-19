@@ -1,4 +1,10 @@
-export const services = [
+export interface Service {
+  image: string;
+  title: string;
+  description: string;
+}
+
+export const services : Service[] = [
   {
     image: "/homesearch.png",
     title: "Property valuation",

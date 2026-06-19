@@ -1,4 +1,8 @@
-export const locationSales = {
+export type LocationSales = {
+  [location: string]: string[];
+};
+
+export const locationSales :LocationSales = {
   Imadol: [
     "Apartment in Imadol",
     "House for Sale in Imadol",
@@ -18,7 +22,7 @@ export const locationSales = {
   ],
 };
 
-export const propertyTypes = [
+export const propertyTypes : string[] = [
   "Apartment",
   "Land",
   "House",
@@ -37,13 +41,13 @@ export const places = [
   "Kavre Palanchok",
 ];
 
-export const brsi=[
+export const brsi : string[]=[
   "Buy",
   "Rent",
   "Invest",
   "Services"
 ]
-export const footerLinks = [
+export const footerLinks : string[] = [
   "About",
   "Our Team",
   "Location",

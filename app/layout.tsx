@@ -1,8 +1,8 @@
-import NavBar from "./components/nav";
+import NavBar from "./nav";
 import "./globals.css";
 import {Figtree} from "next/font/google"
 import ReduxProvider from "./store/Provider";
-import CookieUI from "./components/CookieUI";
+import CookieUI from "./CookieUI";
 
 export const metadata = {
   title: "Property Cafe",

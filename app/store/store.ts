@@ -4,6 +4,7 @@ import cookieReducer from "../store/slices/cookie"
 import slideReducer from "../store/slices/slideClickSlice"
 import exploreNavReducer from "../store/slices/exporeNavSlice"
 import exploreMoreReducer from "../store/slices/exploreMoreFooter"
+import propertyDetailReducer from "../store/slices/DetailPageSlice"
 
 export const store = configureStore({
     reducer:{
@@ -12,6 +13,7 @@ export const store = configureStore({
         slideOptions : slideReducer,
         exploreNav: exploreNavReducer,
         exploreMore: exploreMoreReducer,
+        detailPage: propertyDetailReducer,
     }
 })
 
