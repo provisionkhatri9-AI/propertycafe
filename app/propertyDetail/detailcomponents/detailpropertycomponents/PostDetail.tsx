@@ -9,9 +9,9 @@ export default function PostDetail(){
                        <div className="flex flex-col gap-7">
                                  <p className="text-[#4B4B4B] text-[12px] leading-[140%]">Find reliable tenants quickly – zero hassle, guaranteed rent!</p>
 
-                            <div className="text-[#F0A300] flex gap-2 items-center ">
+                            <div className="text-[#F0A300] flex gap-2 items-center group cursor-pointer">
                                 <p className="text-[clamp(0.8rem,4vw,1rem)] font-semibold leading-[140%]">Post Porperty Detail</p>
-                                <p >➡ </p>
+                                <p className="group-hover:translate-x-[2px] transition-all duration 300">➡ </p>
                             
                             </div>
                             </div>

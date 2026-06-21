@@ -35,7 +35,7 @@ export default function InterestedFillUp(){
                 </div>
 
                 <div className="w-full ">
-                    <div className="bg-gradient-to-l rounded-2xl from-[#A044FF] to-[#6A3093] flex items-center justify-center  py-3">
+                    <div className="bg-gradient-to-l rounded-2xl from-[#A044FF] to-[#6A3093] flex items-center justify-center  py-3 hover-lift cursor-pointer">
                         <p className="text-white font-semibold leading-[140%] text-[16px] ">Get CallBack Now</p>
                     </div>
                 </div>

@@ -5,6 +5,7 @@ import slideReducer from "../store/slices/slideClickSlice"
 import exploreNavReducer from "../store/slices/exporeNavSlice"
 import exploreMoreReducer from "../store/slices/exploreMoreFooter"
 import propertyDetailReducer from "../store/slices/DetailPageSlice"
+import aanaSliceReducer from "../store/slices/annaSlice"
 
 export const store = configureStore({
     reducer:{
@@ -14,6 +15,7 @@ export const store = configureStore({
         exploreNav: exploreNavReducer,
         exploreMore: exploreMoreReducer,
         detailPage: propertyDetailReducer,
+        aanaSlice : aanaSliceReducer,
     }
 })
 

@@ -5,18 +5,19 @@ export type Property ={
   category: string;
 }
 
-export const properties : Property[] = [
-    {
-        image: "/propertybuilding1.jpg",
-        title: "Prime Rental Space",
-        location: "Kathmandu",
-        category: "Commercial",
-    },
+export const trending : Property[] = [
+    
     {
         image: "/propertybuilding2.jpg",
         title: "Luxury Apartment",
         location: "Lalitpur",
         category: "Residential",
+    },
+    {
+        image: "/propertybuilding1.jpg",
+        title: "Prime Rental Space",
+        location: "Kathmandu",
+        category: "Commercial",
     },
     {
         image: "/propertybuilding3.jpg",
@@ -47,4 +48,3 @@ export const properties : Property[] = [
     "Price Reduction",
     "Investment Opportunities"
 ]
-

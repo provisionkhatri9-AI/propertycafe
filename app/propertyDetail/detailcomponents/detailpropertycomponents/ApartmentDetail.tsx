@@ -7,6 +7,7 @@ import { getPropertyFeatures } from "@/utils/propertyFeatures"
 
 
 export default function ApartmentDetail(){
+    const isMobile = useMediaQuery({maxWidth: 1000})
     const property = useSelector(
         (state:RootState) => state.detailPage.properties.find(
             (p) => p.id === state.detailPage.selectedId
@@ -14,9 +15,10 @@ export default function ApartmentDetail(){
     )
 
     if(!property) return <p>error</p>
-
     const items = getPropertyFeatures(property.features)
-    const isMobile = useMediaQuery({maxWidth: 1000})
+    
+
+     
     return(
         <div className="flex  flex-col w-full  gap-6 ">
                 {

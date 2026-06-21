@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-type slideKey = "feature" | "recommended"
+type slideKey = "feature" | "recommended" | "similar"
 type slideState ={
     featureSlicing : Record<slideKey,number>
     exploreSlided :number
@@ -10,6 +10,7 @@ const initialState: slideState ={
         featureSlicing:{
             feature : 0,
             recommended :0,
+            similar:0,
         },
         exploreSlided:0,
         

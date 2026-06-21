@@ -14,7 +14,7 @@ export default function Location({
             </div>
 
             <div className={`relative ${isMobile? "" : "-translate-x-4"} w-[clamp(200px,90vw,800px)] h-[300px]`}>
-                <Image src="/mappofour.png" alt="hello" fill className="object-fit"></Image>
+                <Image src="/mappofour.png" alt="hello" fill className="object-cover"></Image>
             </div>
         </div>
     )

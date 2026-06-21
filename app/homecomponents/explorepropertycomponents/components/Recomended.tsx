@@ -1,8 +1,8 @@
 import FeaturedPropertyCard from "../../featuredpropertycomponents/FeaturedPropertyCard"
 
-export default function (){
+export default function Recomended() {
 
-    return(
+    return (
         <div className="">
             <div>
                 <p className="font-semibold text-[clamp(1.3rem,3vw,2rem)]">Recommended For You</p>

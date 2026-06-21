@@ -11,7 +11,7 @@ export default function SimilarProperties(){
             </div>
 
             <div>
-                <FeaturedPropertyCard widthClass="w-[91vw]"></FeaturedPropertyCard>
+                <FeaturedPropertyCard widthClass="w-[90.5vw]" type="similar"></FeaturedPropertyCard>
             </div>
         </div>
     )

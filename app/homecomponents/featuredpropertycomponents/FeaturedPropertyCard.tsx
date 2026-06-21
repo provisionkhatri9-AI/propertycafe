@@ -6,11 +6,12 @@ import ArrowComp from "@/app/propertyDetail/detailcomponents/arrowComp";
 import { slideLeftFea, slideRightFea } from "@/app/store/slices/slideClickSlice";
 import { properties } from "@/data/featrureCardData";
 import { recommendedData } from "@/data/recommendedCardData";
+import { similarData } from "@/data/similarData";
 
-type sliderType= "recommended" | "feature"
+type sliderType= "recommended" | "feature" | "similar"
 
 export default function FeaturedPropertyCard({
-    widthClass= "w-[95wv]",
+    widthClass= "w-[90vw]",
     type = "feature" 
 }: {
   widthClass?: string;
@@ -53,11 +54,19 @@ export default function FeaturedPropertyCard({
                         <FeatureRealCard key={key} property={items}></FeatureRealCard>
                     ))
                 }
+
+                {
+                    type == "similar" &&
+                    similarData.map((items,key)=>(
+                        <FeatureRealCard key={key} property={items} ></FeatureRealCard>
+                    ))
+
+                }
                 </div>
                 
 
             </div>
-            <div className="absolute sm:right-[-17px] top-1/2 right-[-14px]">
+            <div className={`absolute  top-1/2  ${type == "similar" ? "right-[-5%] ": "right-[-1.5%] "}`}>
                 <ArrowComp onClick={()=>dispatch(slideRightFea(type))} direction="right"></ArrowComp>
             </div>
         </div>

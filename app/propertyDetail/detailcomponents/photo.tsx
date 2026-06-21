@@ -1,9 +1,9 @@
 import Image from "next/image"
 import { useMediaQuery } from "react-responsive"
-import type { TopImagesInterface } from "@/data/detailPropertyData"
+import type { Property } from "@/type/DetailPageType"
 
 interface ImageType{
-    images: TopImagesInterface
+    images: Property["images"]
 }
 
 export default function Photo({
@@ -73,10 +73,10 @@ export default function Photo({
                             <p>360 tour</p>
                         </div>
                     </div>
-                    <div className=" rounded-xl relative overflow-hidden">
-                        <Image src={images.floorPlan} alt="hello" width={297} height={147} className="min-w-[220px] h-[180px]" ></Image>
+                    <div className=" rounded-xl relative overflow-hidden group">
+                        <Image src={images.floorPlan} alt="hello" width={297} height={147} className="min-w-[220px] h-[180px] group-hover:scale-101 transition-all duration-300" ></Image>
                         <div className="h-full w-full bg-black/20 absolute inset-0"></div>
-                        <div className="flex text-white gap-1 absolute top-1/2 left-1/2 -translate-x-1/2 rounded-xl bg-[#2F2F2F40]] backdrop-blur-sm px-2 py-2">
+                        <div className="flex text-white gap-1 absolute top-1/2 left-1/2 -translate-x-1/2 rounded-xl bg-[#2F2F2F40]] backdrop-blur-sm px-2 py-2 group-hover:scale-101 group-hover:-translate-y-[2px] transition-all duration-300 z-[10]">
                             <p>Floor Plan</p>
                         </div>
                     </div>
@@ -86,15 +86,15 @@ export default function Photo({
                 {
                     !isMobileMore &&
                     <div className="flex flex-col gap-2 ">
-                    <div className=" rounded-xl relative overflow-hidden">
-                        <Image src={images.area} alt="hello" width={297} height={147} className="min-w-[220px] h-[180px]" ></Image>
+                    <div className=" rounded-xl relative overflow-hidden group">
+                        <Image src={images.area} alt="hello" width={297} height={147} className="min-w-[220px] h-[180px] group-hover:scale-101 transition-all duration-300" ></Image>
                         <div className="h-full w-full bg-black/20 absolute inset-0"></div>
-                        <div className="flex text-white gap-1 absolute top-1/2 left-1/2 -translate-x-1/2 rounded-xl bg-[#2F2F2F40]] backdrop-blur-sm px-2 py-2">
+                        <div className="flex text-white gap-1 absolute top-1/2 left-1/2 -translate-x-1/2 rounded-xl bg-[#2F2F2F40]] backdrop-blur-sm px-2 py-2 group-hover:scale-101 group-hover:-translate-y-[2px] transition-all duration-300 z-[10]">
                             <p>Area</p>
                         </div>
                     </div>
-                    <div className=" rounded-xl relative overflow-hidden">
-                        <Image src={images.room} alt="hello" width={297} height={147} className="min-w-[220px] h-[180px]" ></Image>
+                    <div className=" rounded-xl relative overflow-hidden group">
+                        <Image src={images.room} alt="hello" width={297} height={147} className="min-w-[220px] h-[180px] group-hover:scale-101 transition-all duration-300 group-hover:scale-101 group-hover:-translate-y-[2px] transition-all duration-300 z-[10]" ></Image>
                         <div className="h-full w-full bg-black/20 absolute inset-0"></div>
                         <div className="flex text-white gap-1 absolute top-1/2 left-1/2 -translate-x-1/2 rounded-xl bg-[#2F2F2F40]] backdrop-blur-sm px-2 py-2">
                             <p>30 More Photos</p>

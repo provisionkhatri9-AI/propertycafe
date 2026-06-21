@@ -18,9 +18,11 @@ export default function HeroSection(){
 
     const[mounted,setMounted] = useState(false)
 
-    useEffect(()=>{
-        setMounted(true)
-    },[])
+    useEffect(() => {
+    const timer = setTimeout(() => setMounted(true), 0);
+    return () => clearTimeout(timer);
+}, []);
+
 
     const isMobile = useMediaQuery({maxWidth:767})
     const isHieght550 = useMediaQuery({maxHeight:550})

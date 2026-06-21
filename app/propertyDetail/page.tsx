@@ -20,9 +20,11 @@ export default function PropertyDetail(){
 
     const [mounted,setMounted] = useState(false)
 
-    useEffect(()=>{
-        setMounted(true)
-    },[])
+    useEffect(() => {
+    const timer = setTimeout(() => setMounted(true), 0);
+    return () => clearTimeout(timer);
+}, []);
+
 
     const isMobile = useMediaQuery({maxWidth: 1000})
     const isMobile400 = useMediaQuery({maxWidth: 400})

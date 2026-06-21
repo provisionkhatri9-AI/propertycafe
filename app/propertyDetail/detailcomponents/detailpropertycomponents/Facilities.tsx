@@ -26,13 +26,15 @@ export default function Facilities(){
                 <div className="flex gap-5 flex-wrap">
                     {
                         items.map((items,id)=>(
-                            <div key={id} className="w-[155px] flex gap-5">
-                        <div className="w-[40px] h-[40px] rounded-md border-[0.5px] border-[#6A3093] flex items-center justify-center">
+                            <div key={id} className="w-[155px] flex gap-5 cursor-pointer">
+                        
+                            <div className="w-[40px] h-[40px] rounded-md border-[0.5px] border-[#6A3093] flex items-center justify-center ">
                         <Image src={items.image} alt="hello" width={0} height={0} className="w-[20px] h-[20px] "></Image>
                             </div>
-                            <div className="flex flex-col gap3">
+                            <div className="flex flex-col gap3 ">
                                 <p className="font-semibold text-[16px] leading-[140%] text-[#4B4B4B]">{items.value}</p>
                                 <p className="text-[14px] text-[#757575]">{items.label}</p>
+                       
                         </div>
                     </div>
                         ))

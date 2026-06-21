@@ -7,9 +7,11 @@ import Link from "next/link"
 export default function NavBar(){
     const [mounted, setMounted] = useState(false)
     
-    useEffect(()=>{
-        setMounted(true)
-    },[])
+   useEffect(() => {
+    const timer = setTimeout(() => setMounted(true), 0);
+    return () => clearTimeout(timer);
+}, []);
+
 
     const medium = useMediaQuery({maxWidth:900})
     const isMobile = useMediaQuery({maxWidth: 767})
@@ -56,7 +58,7 @@ export default function NavBar(){
 
                 {medium&&(
                             <div className="flex justify-center items-center">
-                                <img src="/hamburgericon.png" alt="" className="h-8 w-8 mr-5" />
+                                <Image src="/hamburgericon.png" alt="hello" width={8} height={8} className="h-8 w-8 mr-5" > </Image>
                             </div>
                         )}
                 

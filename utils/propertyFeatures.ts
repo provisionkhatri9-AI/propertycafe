@@ -1,4 +1,4 @@
-import type { Property } from "../app/store/slices/DetailPageSlice";
+import type { Property } from "@/type/DetailPageType";
 
 export type FeatureItem = {
   image: string;
@@ -33,7 +33,7 @@ export const getPropertyFeatures = (
     {
       image: "/compas.png",
       value: features.facing,
-      label: "",
+      label: "Navigation",
     },
     {
       image: "/livingroom.png",
@@ -82,7 +82,7 @@ export const getPropertyFeatures = (
     },
     {
       image: "/bath.png",
-      value: features.secrityStaff,
+      value: features.baths,
       label: "Baths",
     },
     {

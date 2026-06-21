@@ -1,4 +1,4 @@
-export const recentSearches : String[] = [
+export const recentSearches : string[] = [
     "Lalitpur",
     "Kathmandu"
 ]

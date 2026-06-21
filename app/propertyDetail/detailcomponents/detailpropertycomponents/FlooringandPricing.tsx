@@ -1,21 +1,34 @@
-"use client"
-import { useState,useEffect } from "react"
+
 import Image from "next/image"
 import { useMediaQuery } from "react-responsive"
 import MobileScreen from "./mobilescreen"
+import { RootState } from "@/app/store/store"
+import { useSelector,useDispatch } from "react-redux"
+import { setSelectedId } from "@/app/store/slices/annaSlice"
+import RoomAndSize from "./roomAndSize"
 export default function FlooringandPricing(){
-    const [mounted, setMounted] = useState(false)
 
-        useEffect(() => {
-            setMounted(true)
-        }, [])
-    
-        const isBigMobile1 = useMediaQuery({maxWidth:1047})
+    const dispatch = useDispatch()
+
+     const property = useSelector(
+        (state:RootState) => state.detailPage.properties.find(
+            (p) => p.id === state.detailPage.selectedId
+        )
+    )
+
+    const selectedID = useSelector(
+        (state:RootState) => state.aanaSlice.setSelectedId
+    )
+
+    const isBigMobile1 = useMediaQuery({maxWidth:1047})
     const isBigMobile = useMediaQuery({maxWidth:1017})
     const isMobile = useMediaQuery({maxWidth:780})
     const isLittleMobile = useMediaQuery({maxWidth : 700})
+
     
-    if (!mounted) return null
+    if(!property) return <p>error</p>
+    
+   
     return(
         <div className={`${isLittleMobile? "p-0":"shadow p-7"} rounded-2xl  flex flex-col items-center ${isLittleMobile?"gap-2":"gap-7"}`}>
             <div className="w-full">
@@ -26,7 +39,7 @@ export default function FlooringandPricing(){
                 {
                 isLittleMobile&&
                 <div className="px-2 w-fit  rounded-xl py-1 bg-[#E7EDFF]">
-                    <p className="text-[#5379FF] text-[14px] leading-[140%]">2BHK Apartment</p>
+                    <p className="text-[#5379FF] text-[14px] leading-[140%]">{property.typeAndPricing.type}</p>
                 </div>
             }
             </div>
@@ -37,38 +50,27 @@ export default function FlooringandPricing(){
                     {
                         !isLittleMobile&&
                         <div className="border-[0.5px]  flex justify-between  border-[#F0EAF4] p-3 rounded-2xl">
-                    <div className="p-2 w-[full h-[45px] bg-[#F0EAF4] rounded-xl flex items-center justify-center">
-                        <p className="text-[14px] leading-[140%] text-[#6A3093]">4 Anna</p>
-                    </div>
-
-                    <div className="p-2 w-[65px] h-[45px] rounded-xl flex items-center justify-center">
-                        <p className="text-[14px] leading-[140%] text-[#111116]">5 Anna</p>
-                    </div>
-
-                    <div className="p-2 w-[65px] h-[45px] rounded-xl flex items-center justify-center">
-                        <p className="text-[14px] leading-[140%] text-[#111116]">6 Anna</p>
-                    </div>
-
-                    <div className="p-2 w-[65px] h-[45px] rounded-xl flex items-center justify-center">
-                        <p className="text-[14px] leading-[140%] text-[#111116]">7 Anna</p>
-                    </div>
-                    <div className="p-2 w-[65px] h-[45px] rounded-xl flex items-center justify-center">
-                        <p className="text-[14px] leading-[140%] text-[#111116]">8 Anna</p>
-                    </div>
-                </div>
+                        {
+                            property.priceAndFloor.map((items,id)=>(
+                                
+                            <div key={id} onClick={()=>dispatch(setSelectedId(id))} className={`py-2 px-6 w-fit  h-[45px] ${selectedID === id ? "bg-[#F0EAF4] text-[#6A3093]" :""} rounded-xl  flex items-center cursor-pointer justify-center`}>
+                                <p className="text-[14px] leading-[140%] ">{items.area}</p>
+                            </div>
+                            ))
+                        }
+                        </div>
                     }
-
             </div>
 
             {
                 !isLittleMobile&&
                 <div className="relative hidden md:block w-full ">
                 <div>
-                    <p className="text-[#9D98A0] text-[16px] leading-[140%]">2 BHK Apartment</p>
-                    <p className="font-semibold text-[18px] text-[#111116] leading-[140%]">रु2.3Cr</p>
+                    <p className="text-[#9D98A0] text-[16px] leading-[140%]">{property.typeAndPricing.type}</p>
+                    <p className="font-semibold text-[18px] text-[#111116] leading-[140%]"><span className="mr-2">रु</span>{property.priceAndFloor[0].price}</p>
                 </div>
                 <div className="absolute top-0 right-0 flex flex-col hidden md:flex gap-3">
-                    <div className="flex items-center justify-center border-[1px] border-[#F0F2FC] shadow rounded-2xl px-3 py-2">
+                    <div className="flex items-center justify-center border-[1px] border-[#F0F2FC] shadow rounded-2xl px-3 py-2 cursor-pointer">
                         <div className="bg-[#FEF6E6] px-5 py-1.5 rounded-xl">
                             <p className="font-semibold text-[#F0A300] text-[16px] leading-[140%]">3D</p>
                         </div>
@@ -77,27 +79,27 @@ export default function FlooringandPricing(){
                         </div> 
                     </div>
 
-                    <div className="flex items-center bg-white  justify-center border-[1px] border-[#F0F2FC] shadow rounded-2xl px-1 py-1">
-                        <div className=" px-1 py-1.5 rounded-xl">
-                            <Image src="/rot1.png" alt="hello" width={0} height={0} className="w-[30px] h-[30px]" unoptimized></Image>
+                    <div className="flex items-center bg-white  justify-center border-[1px] border-[#F0F2FC] shadow rounded-2xl px-1 py-1 cursor-pointer">
+                        <div className=" px-1 py-1.5 rounded-xl  h-[40px] w-[35px]">
+                            <Image src="/rot1.png" alt="hello" width={30} height={30} className="w-full h-full" ></Image>
                         </div>
                         <div className="  px-1 py-1.5 rounded-xl">
                             <p className="font-semibold text-[#9D98A0] text-[16px] leading-[140%]">Rotate</p>
                         </div> 
-                        <div className=" px-1py-1.5 rounded-xl">
-                            <Image src="/rot2.png" alt="hello" width={0} height={0} className="w-[17px] h-[17px]" unoptimized></Image>
+                        <div className=" px-1py-1.5 rounded-xl h-[17px] w-[17px]">
+                            <Image src="/rot2.png" alt="hello" width={10} height={10} className="w-full h-full"></Image>
                         </div>
                     </div>
 
                     <div className="flex items-center gap-1 bg-white  justify-center border-[1px] border-[#F0F2FC] shadow rounded-2xl px-1 py-1">
                         <div className=" px-1 py-1.5 rounded-xl">
-                            <Image src="/mag2.png" alt="hello" width={0} height={0} className="w-[24px] h-[24px]" unoptimized></Image>
+                            <Image src="/mag2.png" alt="hello" width={20} height={20} className="w-full h-full" ></Image>
                         </div>
                         <div className="  px-1 py-1.5 rounded-xl">
                             <p className="font-semibold text-[#9D98A0] text-[16px] leading-[140%]">100%</p>
                         </div> 
                         <div className=" px-1py-1.5 rounded-xl">
-                            <Image src="/mag1.png" alt="hello" width={0} height={0} className="w-[20px] h-[20px]" unoptimized></Image>
+                            <Image src="/mag1.png" alt="hello" width={20} height={20} className="w-full h-full" ></Image>
                         </div>
                     </div>
                     
@@ -114,53 +116,23 @@ export default function FlooringandPricing(){
                         <p className={`absolute rotate-325 text-[clamp(5rem,4vw,12rem)]  ${isBigMobile? "top-[50%]" : "top-[47%]"} ${isMobile?"top-[47%]": ""} left-[8%]`}>➡</p>
                     </div>
                     <div className="pl-20">
-                        <Image src="/allroommap.png" alt="hello" width={0} height={0} className="max-w-[622px] w-full max-h-[467px]" unoptimized></Image>
+                        <Image src="/allroommap.png" alt="hello" width={622} height={476} className="max-w-[622px] w-full max-h-[467px]" ></Image>
                     </div>
                 </div>
             </div>
             }
 
-            
-
            {
              !isLittleMobile&&
              <div className={`${isLittleMobile? "w-[420px]" : ""} ${isBigMobile1? "w-[500px]" : "w-[550px]"} flex items-center justify-center  `}>
                 <div className="relative  h-full w-[40px] shrink-0   flex items-center justify-center">
-                    <div className="border-4 rounded-full   h-fit p-2 border-[#FFD1DC] absolute">
-                        <Image src="/downarrow.png" alt="hello" width={0} height={0} className="w-3 h-3 rotate-90"></Image>
-                    </div>
-                </div>
-                <div className="max-w-[600px] min-w-[200px] py-1 px-2 flex gap-2 overflow-x-auto scrollbar-hide">
-                <div className="flex flex-col gap-2 items-center border-[1px] border-[#F0EAF4] whitespace-nowrap radius-xl w-fit px-3">
-                    <p className="text-[#4B4B4B] text-[14px] leading-[140%]">Bedroom 1</p>
-                    <p className="text-[#4B4B4B] text-[14px] leading-[140%]">11’ 10’’ X 10’ 0’’</p>
-                </div>
+                
+                    <RoomAndSize property={property.roomAndSize}></RoomAndSize>
+                    
+                
 
-                <div className="flex flex-col gap-2 items-center border-[1px] border-[#F0EAF4] whitespace-nowrap radius-xl w-fit px-3">
-                    <p className="text-[#4B4B4B] text-[14px] leading-[140%]">Attached Bathroom with Bedroom 1</p>
-                    <p className="text-[#4B4B4B] text-[14px] leading-[140%]">7’ 0’’ X 4’ 0’’</p>
-                </div>
-
-                <div className="flex flex-col gap-2 items-center border-[1px] border-[#F0EAF4] whitespace-nowrap radius-xl w-fit px-3">
-                    <p className="text-[#4B4B4B] text-[14px] leading-[140%]">Living Room</p>
-                    <p className="text-[#4B4B4B] text-[14px] leading-[140%]">11’ 10’’ X 10’ 0’’</p>
-                </div>
-
-                <div className="flex flex-col gap-2 items-center border-[1px] border-[#F0EAF4] whitespace-nowrap radius-xl w-fit px-3">
-                    <p className="text-[#4B4B4B] text-[14px] leading-[140%]">Living Room</p>
-                    <p className="text-[#4B4B4B] text-[14px] leading-[140%]">11’ 10’’ X 10’ 0’’</p>
-                </div>
-
-                <div className="flex flex-col gap-2 items-center border-[1px] border-[#F0EAF4] whitespace-nowrap radius-xl w-fit px-3">
-                    <p className="text-[#4B4B4B] text-[14px] leading-[140%]">Common Bathroom</p>
-                    <p className="text-[#4B4B4B] text-[14px] leading-[140%]">11’ 10’’ X 10’ 0’’</p>
-                </div>
             </div>
-                <div className="relative w-[40px] shrink-0   h-full flex items-center justify-center">
-                    <div className="border-4 rounded-full h-fit p-2 border-[#FFD1DC] absolute">
-                        <Image src="/downarrow.png" alt="hello" width={0} height={0} className="w-3 h-3 rotate-270"></Image>
-                    </div>
-                </div>
+                
             </div>
            }
 

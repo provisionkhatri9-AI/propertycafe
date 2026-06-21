@@ -26,7 +26,7 @@ export default function BlogAndArticle(){
                     data.map((items,key)=>(
                         <div key={key} className="flex flex-col max-w-[380px] min-w-[270px]  gap-1 group hover:-translate-y-[2px] transition-all cursor-pointer duration-300" >
                     <div className="rounded-xl overflow-hidden max-w-[380px] min-w-[270px] h-fit ">
-                        <Image src={items.image} alt="helo" width={380} height={370} className="w-full h-full group-hover:scale-101  transition-all duration-500"></Image>
+                        <Image src={items.image} alt="helo" width={300} height={370} className="w-full h-full group-hover:scale-101  transition-all duration-500"></Image>
                     </div>
 
                     <div className="max-w-[330px] ">
