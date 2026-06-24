@@ -1,0 +1,92 @@
+import { recentSearches } from "@/data/recentSearches"
+
+import { useMediaQuery } from "react-responsive"
+
+
+
+export default function SearchComp(){
+
+    const isMobile = useMediaQuery({maxWidth:767})
+    const isWidth430 = useMediaQuery({maxWidth:430})
+
+    return(
+        <div className="relative h-[147px]  flex flex-col  justify-end">
+            <div className={` absolute flex  items-center justify-center  h-[55px]  inset-0 ${isWidth430 ? "top-[-26%]" : "top-[-27px]"}`}>
+                <div className={` ${isMobile? "w-[230px] gap-2" : "w-[320px]  gap-5"} transition-all duration-300  flex items-center justify-center bg-[#7230B5]  rounded-t-xl rounded-b-3xl h-full text-[clamp(0.8rem,4vw,1rem)]`}>
+                    <div className="flex text-white flex-col items-center gap-1 hover:-translate-y-[2px] cursor-pointer transition-transform duration-300">
+                        <p className=" leading-[140%]">Buy</p>
+                        <div className="h-[2px] rounded-xl  w-full bg-white "></div>
+                    </div>
+                    <div className="flex text-white flex-col items-center gap-1 hover:-translate-y-[2px] cursor-pointer transition-transform duration-300">
+                        <p className=" leading-[140%]">Rent</p>
+                        <div className="h-[2px] text-white rounded-xl  w-full bg-white"></div>
+                    </div>
+                    <div className="flex text-white flex-col items-center gap-1 hover:-translate-y-[2px] cursor-pointer transition-transform duration-300">
+                        <p className=" leading-[140%]">Land</p>
+                        <div className="h-[2px] rounded-xl  w-full bg-white"></div>
+                    </div>
+                    <div className="flex text-white flex-col items-center gap-1 hover:-translate-y-[2px] cursor-pointer transition-transform duration-300">
+                        <p className=" leading-[140%]">Commericial</p>
+                        <div className="h-[2px] rounded-xl  w-full bg-white"></div>
+                    </div>
+                </div>
+            </div>
+            <div className="h-[141px] flex flex-col justify-center items-center  w-full rounded-[50px] bg-gradient-to-b from-white/50 via-white/60 via-[15%] to-[#B192C7]">
+
+                <div className="w-[80%] flex flex-col gap-3">
+                    <div className="flex justify-between   rounded-3xl bg-white px-6 py-3">
+                            <div className="flex items-center gap-3 whitespace-nowrap cursor-pointer">
+                        {!isMobile && (
+                            <p className="text-[14px] leading-xl">Select City</p>
+                        )}
+                        <div>
+                            <img src="/downarrow.png" alt="" className="w-3 h-3"/>
+                        </div>
+                    </div>
+
+                    <div className="flex-1 h-full border-l-[1px] border-[#F0EAF4]  ml-2">
+
+                        <input type="text"  aria-label="Search properties" placeholder="Search for Locality, landmarks or projects" className="w-full h-full p-2 outline-none placeholder-gray-400 placeholder:text-[14px]" />
+
+                    </div>
+
+                    <button type="button" className="flex items-center justify-center bg-[#F0A300] rounded-xl px-3 py-1 cursor-pointer hover:scale-105 duration-300">
+
+                        {!isMobile&&(
+                            <p className="text-white text-[14px]">Search</p>
+                        )}
+
+                        {
+                            isMobile &&(
+                                <img src="/searchicon.png" alt="" className="w-5 h-5" />
+                            )
+                        }
+
+                    </button>
+                    </div>
+
+
+                    <div >
+                    <div className={`flex  gap-3 items-center ml-[7px]`}>
+                        <div><p className="font-semibold text-white text-[clamp(0.8rem,4vw,1rem)] ">Recent Searches : </p></div>
+                        <div className="group flex gap-3 items-center">
+                            {
+                            recentSearches.slice(0,2).map((item,id)=>(
+                                <div key={id} className={`${id == 1 ? "bg-[#923EE852] text-[12px]  px-2 py-1 rounded-md flex items-center justify-center":" text-[clamp(0.8rem,4vw,0.9rem)]"} hover-lift cursor-pointer `}>
+                                    <p className={``}>{item}</p>
+                                </div>
+                            ))
+                        }
+                        <div className=" group-hover:translate-x-[4px] transition-transform duration-300 cursor-pointer">
+    
+                            <img src="/downarrow.png" className="rotate-270 h-2 w-2" alt="" /></div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                
+
+            </div>
+        </div>
+    )
+}
